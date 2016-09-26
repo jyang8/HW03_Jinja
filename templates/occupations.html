@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title> {{ foo }} </title>
+  </head>
+
+  <body align="center">
+    <table border="1" align="center">
+      
+      <tr>
+	<th>Job Class</th>
+	<th>Percentage</th>
+      </tr>
+      
+      {% for item in collection %}
+      <tr>
+	<td>
+	  {{ item }}
+	</td>
+	<td>
+	  {{ collection.get(item) }}
+	</td>
+      </tr>
+      
+      {% endfor %}
+    </table>
+    <br>
+    Your life calling is to be in:
+    <font color="red">
+      {{ job }}
+    </font>
+  </body>
+  
+</html>
