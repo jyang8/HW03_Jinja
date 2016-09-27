@@ -1,22 +1,21 @@
-# Jessica Yang and Kate Johnston
-# SoftDev pd09
-# Work01
-# 2016-09-15
-
 import random, csv
 
 #builds dictionary from csv file
-def dictCSV():
+def fullDict():
     d = {}
-    with open('occupations.csv') as data:
+    with open('data/occupations.csv') as data:
         reader = csv.DictReader(data)
         for row in reader:
             occ = row['Job Class']
             percent = float(row['Percentage'])
             d[occ] = percent
-        del d['Total']
     return d
 
+#builds dictionary from csv file, without extraneous info
+def dictCSV():
+    d = fullDict()
+    del d['Total']
+    return d
 
 #returns a randomly selected occupation where the results are weighted by the percentage given
 def randOcc(d):
@@ -28,6 +27,5 @@ def randOcc(d):
             return job
         else:
             ctr += percent
-        
-#test
-print randOcc(dictCSV())
+
+#print fullDict()
